@@ -15,7 +15,7 @@ function App() {
 
 	// Fetch the initial message
 	useEffect(() => {
-		fetch('http://localhost:80/')
+		fetch('/api/')
 		.then(response => response.json())
 		.then(data => setMessages([{ text: data.message, sender: 'bot' }]))
 		.catch(error => {
@@ -41,7 +41,7 @@ function App() {
 			]);
       setCurrentMessage('');
       
-			fetch('http://localhost:80/ask', {
+			fetch('/api/ask', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
